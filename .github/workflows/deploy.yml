@@ -27,12 +27,6 @@ jobs:
 
       - name: Emulate fallback routing
         run: cp artifacts/wwwroot/index.html artifacts/wwwroot/404.html
-
-      - name: Rewrite base href
-        uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
-        with:
-          html_path: artifacts/wwwroot/index.html
-          base_href: /${{ github.event.repository.name }}/
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
