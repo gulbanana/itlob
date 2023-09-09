@@ -1,0 +1,14 @@
+﻿@page "/"
+@code {
+    [CascadingParameter] public required Game State { get; set; }
+}
+
+<PageTitle>In the Line of Business</PageTitle>
+<ErrorBoundary>
+    <ChildContent>
+        <PlayArea State="State" />
+    </ChildContent>
+    <ErrorContent>
+        <ErrorView Exception="context" />
+    </ErrorContent>
+</ErrorBoundary>

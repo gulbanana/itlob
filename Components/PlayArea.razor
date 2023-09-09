@@ -1,0 +1,18 @@
+﻿@code {
+    [Parameter] public required Game State { get; set; }
+}
+
+<ResponsivePanes>
+    <MainContent>
+        <p>Elapsed: @((int)State.Counter)</p>
+        <button @onclick="() => State.Counter++">+1</button>
+    </MainContent>
+
+    <FirstPane>
+        <p>sidebar/header</p>
+    </FirstPane>
+
+    <SecondPane>
+        <p>sidebar/footer</p>
+    </SecondPane>
+</ResponsivePanes>
