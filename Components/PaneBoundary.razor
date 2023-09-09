@@ -1,0 +1,23 @@
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public bool RecoverOnNavigate { get; set; }
+    private ErrorBoundary? _Boundary;
+
+    protected override void OnParametersSet()
+    {
+        if (RecoverOnNavigate)
+        {
+            _Boundary?.Recover();
+        }
+    }
+}
+
+<ErrorBoundary @ref="_Boundary">
+    <ChildContent>
+        @ChildContent
+    </ChildContent>
+
+    <ErrorContent>
+        <ErrorView Exception="context" />
+    </ErrorContent>
+</ErrorBoundary>

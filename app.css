@@ -1,7 +1,5 @@
 :root {
+    --font-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     --font-industrial: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
-}
-
-body {
-    font-family: var(--font-industrial);
+    --font-ui: system-ui, sans-serif;
 }

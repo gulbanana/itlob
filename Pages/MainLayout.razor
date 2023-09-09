@@ -23,7 +23,7 @@
         if (module != null)
         {
             await module.InvokeVoidAsync("unsubscribe");
-        }        
+        }
     }
 
     [JSInvokable]
@@ -46,10 +46,28 @@
 <main @ref="mainElement">
     @if (viewportReady)
     {
-        <RAF UpdateState="OnUpdate">
-            <CascadingValue Value="state">
-                @Body
-            </CascadingValue>
-        </RAF>
+        <ResponsivePanes>
+            <MainContent>
+                <PaneBoundary RecoverOnNavigate>
+                    <RAF UpdateState="OnUpdate">
+                        <CascadingValue Value="state">
+                            @Body
+                        </CascadingValue>
+                    </RAF>
+                </PaneBoundary>
+            </MainContent>
+
+            <FirstPane>
+                <PaneBoundary>
+                    <p>sidebar/header</p>
+                </PaneBoundary>
+            </FirstPane>
+
+            <SecondPane>
+                <PaneBoundary>
+                    <p>sidebar/footer</p>
+                </PaneBoundary>
+            </SecondPane>
+        </ResponsivePanes>
     }
 </main>

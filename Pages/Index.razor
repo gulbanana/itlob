@@ -5,11 +5,5 @@
 
 <PageTitle>In the Line of Business</PageTitle>
 
-<ErrorBoundary>
-    <ChildContent>
-        <PlayArea State="State" />
-    </ChildContent>
-    <ErrorContent>
-        <ErrorView Exception="context" />
-    </ErrorContent>
-</ErrorBoundary>
+<p>Elapsed: @((int)State.Counter)</p>
+<button @onclick="() => State.Counter++">+1</button>

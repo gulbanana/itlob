@@ -1,4 +1,5 @@
 .error {
     background: #b32121;
     color: white;
+    font-family: var(--font-code);
 }

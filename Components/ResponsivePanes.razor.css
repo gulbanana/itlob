@@ -12,16 +12,19 @@
 #content {
     grid-area: content;
     justify-self: center;
+    font-family: var(--font-industrial);
 }
 
 #first {
     grid-area: first;
     justify-self: start;
+    font-family: var(--font-ui);
 }
 
 #second {
     grid-area: second;
     justify-self: end;
+    font-family: var(--font-ui);
 }
 
 /* On a sub-tablet screen, display the side panes below the main content and scale text. */
