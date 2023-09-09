@@ -1,10 +1,8 @@
 /* / */
 :root {
+    --font-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     --font-industrial: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
-}
-
-body {
-    font-family: var(--font-industrial);
+    --font-ui: system-ui, sans-serif;
 }
 /* / */
 #blazor-error-ui {
@@ -72,6 +70,7 @@ body {
 .error[b-p067b4eg7m] {
     background: #b32121;
     color: white;
+    font-family: var(--font-code);
 }
 /* /Components/ResponsivePanes.razor.rz.scp.css */
 /* By default, display the panes on either side of the main content. */
@@ -88,16 +87,19 @@ body {
 #content[b-h79aw4bjii] {
     grid-area: content;
     justify-self: center;
+    font-family: var(--font-industrial);
 }
 
 #first[b-h79aw4bjii] {
     grid-area: first;
     justify-self: start;
+    font-family: var(--font-ui);
 }
 
 #second[b-h79aw4bjii] {
     grid-area: second;
     justify-self: end;
+    font-family: var(--font-ui);
 }
 
 /* On a sub-tablet screen, display the side panes below the main content and scale text. */
@@ -134,31 +136,6 @@ body {
     }
 }
 /* /Pages/Index.razor.rz.scp.css */
-nav[b-2fkae2nekj] {
-    height: 60px;
-    background-image: url("nav.png");
-    background-repeat: repeat-x;
-    color: white;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-}
-
-nav label[b-2fkae2nekj], nav button[b-2fkae2nekj] {
-    height: 42px;
-    margin: 6px;
-}
-
-nav > label[b-2fkae2nekj] {
-
-    display: flex;
-    align-items: center;
-}
-
-.commands[b-2fkae2nekj] {
-    flex: 1;
-}
-
 button[b-2fkae2nekj] {
     color: white;
     background: black;
@@ -172,12 +149,6 @@ button:hover[b-2fkae2nekj] {
 
 button:active[b-2fkae2nekj] {
     background: #666;
-}
-
-input[type=checkbox][b-2fkae2nekj] {
-    margin: 6px;
-    width: 24px;
-    height: 30px;
 }
 
 svg text[b-2fkae2nekj] {
