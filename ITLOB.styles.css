@@ -71,7 +71,7 @@ main[b-zrhgdftt51] {
     position: relative;
 }
 
-main > *:first-child[b-zrhgdftt51] {
+main[b-zrhgdftt51] >  *:first-child {
     position: absolute;
 }
 /* /Components/ErrorView.razor.rz.scp.css */
