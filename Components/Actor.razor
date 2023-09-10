@@ -2,9 +2,24 @@
     [Parameter] public Point Center { get; set; }
     [Parameter] public string Label { get; set; } = "X";
     [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public double Fraction { get; set; }
+    private Point arcRadius = new(50,50);
+    private Point arcFrom = new(0,-50);
+    private Point arcTo;
+    private double progX;
+    private double progY;
+
+    protected override void OnParametersSet()
+    {
+        var radians = Math.PI * 2.0 * (Fraction-.25);
+        arcTo = new(50 * Math.Cos(radians), 50 * Math.Sin(radians));
+    }
 }
 
 <g @onclick="OnClick" transform="translate(@(Center.X+50) @(Center.Y+50))">
     <circle r="50" stroke="black" fill-opacity="0" />
+    <path stroke="green" stroke-width="3" fill-opacity="0" d="
+    M@(arcFrom.SVG)
+    A@(arcRadius.SVG) 0,@(Fraction > 0.5 ? 1 : 0),1 @(arcTo.SVG)" />
     <text dominant-baseline="central" text-anchor="middle" font-size="32">@Label</text>
 </g>
