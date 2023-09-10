@@ -3,3 +3,7 @@
     --font-industrial: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
     --font-ui: system-ui, sans-serif;
 }
+
+svg text {
+    user-select: none;
+}

@@ -1,0 +1,10 @@
+@code {
+    [Parameter] public Point Center { get; set; }
+    [Parameter] public string Label { get; set; } = "X";
+    [Parameter] public EventCallback OnClick { get; set; }
+}
+
+<g @onclick="OnClick" transform="translate(@(Center.X+50) @(Center.Y+50))">
+    <circle r="50" stroke="black" fill-opacity="0" />
+    <text dominant-baseline="central" text-anchor="middle" font-size="32">@Label</text>
+</g>
