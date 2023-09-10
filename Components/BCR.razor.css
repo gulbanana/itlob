@@ -2,6 +2,6 @@ main {
     position: relative;
 }
 
-main > *:first-child {
+main > ::deep *:first-child {
     position: absolute;
 }
