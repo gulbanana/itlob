@@ -66,6 +66,14 @@
 .loading-progress-text:after {
     content: var(--blazor-load-percentage-text, "Loading");
 }
+/* /Components/BCR.razor.rz.scp.css */
+main[b-zrhgdftt51] {
+    position: relative;
+}
+
+main > *:first-child[b-zrhgdftt51] {
+    position: absolute;
+}
 /* /Components/ErrorView.razor.rz.scp.css */
 .error[b-p067b4eg7m] {
     background: #b32121;
@@ -80,13 +88,12 @@
     display: grid;
 
     grid-template-areas: 'first content second';
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: 1fr;
 }
 
 #content[b-h79aw4bjii] {
     grid-area: content;
-    justify-self: center;
     font-family: var(--font-industrial);
 }
 

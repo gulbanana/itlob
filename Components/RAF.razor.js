@@ -6,7 +6,7 @@ export function start(component) {
             return;
         }
 
-        component.invokeMethod("OnFrame", timestamp);
+        component.invokeMethod("NotifyFrame", timestamp);
         handle = requestAnimationFrame(callback);
     }
 
