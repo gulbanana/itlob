@@ -5,5 +5,7 @@
 
 <PageTitle>In the Line of Business</PageTitle>
 
-<p>Elapsed: @((int)State.Counter)</p>
-<button @onclick="() => State.Counter++">+1</button>
+<svg viewBox="0 0 @(State.Width) @(State.Height)">
+    <rect width="@State.Width" height="@State.Height" />
+    <circle cx="50" cy="50" r="50" fill="white" />
+</svg>

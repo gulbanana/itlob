@@ -1,0 +1,44 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+@code {
+    public record struct Bounds(double Left, double Top, int Width, int Height);
+
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public required Action<Bounds> OnBounds { get; set; }
+
+    private IJSObjectReference? module;
+    private ElementReference mainElement;
+    private bool viewportReady;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/BCR.razor.js");
+            await module.InvokeVoidAsync("subscribe", mainElement, DotNetObjectReference.Create(this));
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module != null)
+        {
+            await module.InvokeVoidAsync("unsubscribe");
+        }
+    }
+
+    [JSInvokable]
+    public void NotifyBounds(double left, double top, int width, int height)
+    {
+        OnBounds?.Invoke(new(left, top, width, height));
+        viewportReady = true;
+        StateHasChanged();
+    }
+}
+
+<main @ref="mainElement">
+    @if (viewportReady)
+    {
+        @ChildContent
+    }
+</main>

@@ -5,13 +5,12 @@
     display: grid;
 
     grid-template-areas: 'first content second';
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: 1fr;
 }
 
 #content {
     grid-area: content;
-    justify-self: center;
     font-family: var(--font-industrial);
 }
 

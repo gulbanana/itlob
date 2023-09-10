@@ -4,14 +4,14 @@
     [Parameter] public RenderFragment? SecondPane { get; set; }
 }
 
-<article id="panes">
+<div id="panes">
     <section id="content">
         @MainContent
     </section>
-    <aside id="first">
+    <section id="first">
         @FirstPane
-    </aside>
-    <aside id="second">
+    </section>
+    <section id="second">
         @SecondPane
-    </aside>
-</article>
+    </section>
+</div>

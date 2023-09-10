@@ -2,7 +2,7 @@
 @inject IJSRuntime JS
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
-    [Parameter] public required Action<TimeSpan> UpdateState { get; set; }
+    [Parameter] public required Action<TimeSpan> OnFrame { get; set; }
     private IJSInProcessObjectReference? module;
     private TimeSpan last;
 
@@ -21,13 +21,13 @@
     }
 
     [JSInvokable]
-    public void OnFrame(double timestampMilliseconds)
+    public void NotifyFrame(double timestampMilliseconds)
     {
         var timestamp = TimeSpan.FromMilliseconds(timestampMilliseconds);
         if (last != TimeSpan.Zero)
         {
             var diff = timestamp.Subtract(last);
-            UpdateState?.Invoke(diff);
+            OnFrame?.Invoke(diff);
         }
         last = timestamp;
 
