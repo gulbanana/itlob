@@ -74,28 +74,13 @@ main[b-zrhgdftt51] >  *:first-child {
         padding: 120px;
     }
 }
-/* /Pages/Index.razor.rz.scp.css */
-button[b-2fkae2nekj] {
-    color: white;
-    background: black;
-    border: 3px solid white;
-    border-radius: 6px;
-}
-
-button:hover[b-2fkae2nekj] {
-    background: #333;
-}
-
-button:active[b-2fkae2nekj] {
-    background: #666;
-}
-
-svg text[b-2fkae2nekj] {
-    user-select: none;
-}
 /* / */
 :root {
     --font-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     --font-industrial: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
     --font-ui: system-ui, sans-serif;
+}
+
+svg text {
+    user-select: none;
 }
