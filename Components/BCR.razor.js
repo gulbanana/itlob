@@ -1,5 +1,6 @@
 let element = null;
 let component = null;
+let observer = null;
 
 function notify() {
     let bounds = element.getBoundingClientRect();
@@ -11,12 +12,19 @@ export function subscribe(measureElement, notifyObject) {
     component = notifyObject;
     notify();
 
-    window.addEventListener("resize", notify);
+    observer = new ResizeObserver(_entries => {
+        notify();
+    });
+    observer.observe(element);
 }
 
 export function unsubscribe() {
+    if (observer != null) {
+        observer.unobserve();
+        observer = null;
+    }    
+
     if (element != null) {
-        window.removeEventListener("onresize", notify);
         element = null;
         component = null;
     }
