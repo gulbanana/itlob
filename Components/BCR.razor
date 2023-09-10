@@ -30,9 +30,12 @@
     [JSInvokable]
     public void NotifyBounds(double left, double top, int width, int height)
     {
-        OnBounds?.Invoke(new(left, top, width, height));
-        viewportReady = true;
-        StateHasChanged();
+        if (width > 0 && height > 0)
+        {
+            OnBounds?.Invoke(new(left, top, width, height));
+            viewportReady = true;
+            StateHasChanged();
+        }
     }
 }
 
