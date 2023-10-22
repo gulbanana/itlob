@@ -14,28 +14,12 @@
     }
 }
 
-<ResponsivePanes>
-    <MainContent>
-        <BCR OnBounds="SetDimensions">
-            <PaneBoundary RecoverOnNavigate>
-                <RAF OnFrame="UpdateState">
-                    <CascadingValue Value="state">
-                        @Body
-                    </CascadingValue>
-                </RAF>
-            </PaneBoundary>
-        </BCR>
-    </MainContent>
-
-    <FirstPane>
-        <PaneBoundary>
-            <p>sidebar/header</p>
-        </PaneBoundary>
-    </FirstPane>
-
-    <SecondPane>
-        <PaneBoundary>
-            <p>sidebar/footer</p>
-        </PaneBoundary>
-    </SecondPane>
-</ResponsivePanes>
+<BCR OnBounds="SetDimensions">
+    <PaneBoundary RecoverOnNavigate>
+        <RAF OnFrame="UpdateState">
+            <CascadingValue Value="state">
+                @Body
+            </CascadingValue>
+        </RAF>
+    </PaneBoundary>
+</BCR>
