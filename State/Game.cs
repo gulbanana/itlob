@@ -8,7 +8,7 @@ public class Game
     public double Counter { get; set; }
     public double Fraction { get; set; }
 
-    public int? Focus;
+    public int? FocusActor;
 
     public void Tick(TimeSpan elapsed)
     {

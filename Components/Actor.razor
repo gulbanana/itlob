@@ -19,7 +19,7 @@
     }
 }
 
-<g transform="translate(@(Center.X+50) @(Center.Y-25))">
+<g transform="translate(@(Center.X) @(Center.Y-25))">
     @if (Focus)
     {
         <rect x="-60" y="-60" width="120" height="170" fill="#222" rx="10" ry="10" />
@@ -27,10 +27,13 @@
     }
 
     <g @onclick="OnClick" @onmouseenter="OnHover">
-        <circle cx="00" r="50" stroke="black" fill="#aaaaff" />
+        <circle r="50" stroke="black" fill="#aaaaff" />
         <path stroke="white" stroke-width="3" fill-opacity="0" d="
             M@(arcFrom.SVG)
             A@(arcRadius.SVG) 0,@(Fraction > 0.5 ? 1 : 0),1 @(arcTo.SVG)" />
         <text dominant-baseline="middle" text-anchor="middle" font-size="32">@Label</text>
     </g>
+
+    <circle r="10" cx="50" stroke="black" fill="#aaaaff" />
+    <text x="50" dominant-baseline="middle" text-anchor="middle" font-size="16">X</text>
 </g>

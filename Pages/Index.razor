@@ -2,16 +2,15 @@
 @code {
     [CascadingParameter] public required Game State { get; set; }
 
-    private Action Focus(int x) => () => State.Focus = x;
+    private Action Focus(int x) => () => State.FocusActor = x;
 }
 
 <PageTitle>In the Line of Business</PageTitle>
 
 <svg viewBox="0 0 @(State.Width) @(State.Height)">
     <rect width="@State.Width" height="@State.Height" fill="#aaaaff" />
-    <Actor Center="new(100, 100)" Focus="State.Focus == 1" Label="@($"{State.Fraction:0.00}")" Fraction="@State.Fraction"
-        OnHover="Focus(1)" />
-    <Actor Center="new(300, 100)" Focus="State.Focus == 2" Label="+1" 
-           OnHover="Focus(2)" OnClick="() => State.Counter++"/>
-    <text dominant-baseline="central" y="208" style="font-size: 16px">Elapsed: @((int)State.Counter)</text>
+    <Actor Center="new(180, 85)" Label="E1" Fraction="@State.Fraction"
+           Focus="State.FocusActor == 1" OnHover="Focus(1)" />
+    <Actor Center="new(420, 85)" Label="E2"
+           Focus="State.FocusActor == 2" OnHover="Focus(2)" />
 </svg>
