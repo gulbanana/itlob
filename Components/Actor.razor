@@ -1,8 +1,11 @@
 @code {
     [Parameter] public Point Center { get; set; }
     [Parameter] public string Label { get; set; } = "X";
-    [Parameter] public EventCallback OnClick { get; set; }
     [Parameter] public double Fraction { get; set; }
+    [Parameter] public bool Focus { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public EventCallback OnHover { get; set; }
+
     private Point arcRadius = new(50,50);
     private Point arcFrom = new(0,-50);
     private Point arcTo;
@@ -16,10 +19,18 @@
     }
 }
 
-<g @onclick="OnClick" transform="translate(@(Center.X+50) @(Center.Y+50))">
-    <circle r="50" stroke="black" fill-opacity="0" />
-    <path stroke="green" stroke-width="3" fill-opacity="0" d="
-    M@(arcFrom.SVG)
-    A@(arcRadius.SVG) 0,@(Fraction > 0.5 ? 1 : 0),1 @(arcTo.SVG)" />
-    <text dominant-baseline="middle" text-anchor="middle" font-size="32">@Label</text>
+<g transform="translate(@(Center.X+50) @(Center.Y-25))">
+    @if (Focus)
+    {
+        <rect x="-60" y="-60" width="120" height="170" fill="#222" rx="10" ry="10" />
+        <text><text dominant-baseline="middle" text-anchor="middle" y="75" fill="#aaaaff">Foo</text></text>
+    }
+
+    <g @onclick="OnClick" @onmouseenter="OnHover">
+        <circle cx="00" r="50" stroke="black" fill="#aaaaff" />
+        <path stroke="white" stroke-width="3" fill-opacity="0" d="
+            M@(arcFrom.SVG)
+            A@(arcRadius.SVG) 0,@(Fraction > 0.5 ? 1 : 0),1 @(arcTo.SVG)" />
+        <text dominant-baseline="middle" text-anchor="middle" font-size="32">@Label</text>
+    </g>
 </g>

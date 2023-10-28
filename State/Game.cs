@@ -8,6 +8,8 @@ public class Game
     public double Counter { get; set; }
     public double Fraction { get; set; }
 
+    public int? Focus;
+
     public void Tick(TimeSpan elapsed)
     {
         Counter += elapsed.TotalSeconds;
