@@ -1,0 +1,20 @@
+@code {
+    [Parameter] public Point Center { get; set; }
+    [Parameter] public double Fraction { get; set; }
+    [Parameter] public EventCallback OnHover { get; set; }
+    [Parameter, EditorRequired] public required string Label { get; set; }
+}
+
+<g transform="translate(@(Center.X) @(Center.Y))">    
+    @* 20x20 box *@
+    <rect fill="white" x="-10" y="-10" width="20" height="20" />
+    <line stroke="black" x1="-10" y1="-10" x2="10" y2="-10" />
+    <line stroke="black" x1="-10" y1="10" x2="10" y2="10" />
+
+    @* 10x20 end caps *@
+    <path stroke="black" fill="white" d="M-10,-10 a10,10 0,0,0 0,20" />
+    <path stroke="black" fill="white" d="M10,-10 a10,10 0,0,1 0,20" />
+    
+    @* temp label *@
+    <text dominant-baseline="middle" text-anchor="middle" font-size="16">@Label</text>
+</g>
